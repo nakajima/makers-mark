@@ -1,13 +1,44 @@
-# makers-mark
+# Makers Mark(down)
 
-@@@ ruby
-    def foo
-      :bar
-    end
-@@@
+Generate syntax highlighted HTML using [Markdown](http://daringfireball.net/projects/markdown/)/[Lighthouse](http://lighthouseapp.com/)
+conventions. Good for stuff.
 
-## Sounds good.
+## Usage
 
+Write something in [Markdown](http://daringfireball.net/projects/markdown/). Use the `mark` command to generate
+the HTML:
+
+    $ mark some-file.md
+
+### Syntax Highlighting
+
+If you've used [Lighthouse](http://lighthouseapp.com/), you probably know how to post snippets
+of code. This lets you do that as well:
+
+    # Some interesting code
+    
+    Here it is:
+
+    @@@ ruby
+        def foo
+          :bar
+        end
+    @@@
+
+## Todo
+
+* The highlighting code is still a bit sketchy
+* Ability to insert into a layout
+* Other stuff...
+
+## Credits
+
+* Ryan Tomayko for RDiscount
+* John Gruber for Markdown
+* Chris Wanstrath for albino.rb
+* Lighthouse for code snippet simplicity
+
+<pre>
 (c) Copyright 2009 Pat Nakajima
 
 Permission is hereby granted, free of charge, to any person
@@ -30,3 +61,4 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+</pre>
