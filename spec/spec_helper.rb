@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'nokogiri'
 require 'bacon'
-require 'slidedown'
 
 $SILENT = true
 

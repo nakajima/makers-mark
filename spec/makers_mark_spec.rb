@@ -31,4 +31,12 @@ describe 'MakersMark' do
     MD
     Nokogiri(result).at('.highlight.js').should.not.be.nil
   end
+
+  it "allows nested markdown" do
+    with_markdown <<-MD
+    |    # This should be markdown
+    MD
+    Nokogiri(result).at('h1').should.be.nil
+    Nokogiri(result).at('pre').should.not.be.nil
+  end
 end

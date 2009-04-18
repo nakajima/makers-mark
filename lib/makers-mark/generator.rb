@@ -16,10 +16,11 @@ module MakersMark
     end
 
     def highlight!
-      doc.search('div.code').each do |node|
-        lexer = node['rel'] || :ruby
-        lexted_text = Albino.new(node.text, lexer).to_s
-
+      doc.search('div.code').each do |div|
+        lexer = div['rel'] || :ruby
+        
+        lexted_text = Albino.new(div.text, lexer).to_s
+        
         highlighted = Nokogiri::HTML(lexted_text).at('div')
 
         klasses = highlighted['class'].split(/\s+/)
@@ -28,7 +29,7 @@ module MakersMark
         klasses << 'highlight'
         highlighted['class'] = klasses.join(' ')
 
-        node.replace(highlighted)
+        div.replace(highlighted)
       end
     end
 
@@ -36,8 +37,8 @@ module MakersMark
       @markup ||= begin
         logger.info "WRITING!"
         t = RDiscount.new(@markdown.dup).to_html
-        t.gsub!(/^<p>@@@(?:<\/p>)?$/, '</div>')
-        t.gsub!(/^<p>@@@\s*(\w+)(?:<\/p>)?$/, '<div class="code" rel="\1">')
+        t.gsub!(/^(?:<p>)?@@@(?:<\/p>)?$/, '</div>')
+        t.gsub!(/^(?:<p>)?@@@\s*(\w+)(?:<\/p>)?$/, '<div class="code" rel="\1">')
         t
       end
     end

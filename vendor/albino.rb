@@ -38,7 +38,7 @@
 #
 # To see all lexers and formatters available, run `pygmentize -L`.
 #
-# Chris Wanstrath // chris@ozmm.org 
+# Chris Wanstrath // chris@ozmm.org
 #         GitHub // http://github.com
 #
 require 'open4'
@@ -55,7 +55,7 @@ class Albino
   end
 
   def initialize(target, lexer = :ruby, format = :html)
-    @target  = File.exists?(target) ? File.read(target) : target rescue target
+    @target  = File.exists?(target) ? File.read(target) : target rescue target.chomp
     @options = { :l => lexer, :f => format }
   end
 
@@ -73,7 +73,7 @@ class Albino
 
   def convert_options(options = {})
     @options.merge(options).inject('') do |string, (flag, value)|
-      string + " -#{flag} #{value}" if value
+      string += " -#{flag} #{value}"
       string
     end
   end
