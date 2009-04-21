@@ -4,4 +4,6 @@ require File.join(File.dirname(__FILE__), *%w[.. lib makers-mark])
 
 content = ARGV.first ? File.read(ARGV.first) : $stdin.read
 
+$VERBOSE = true
+
 puts MakersMark.generate(content)

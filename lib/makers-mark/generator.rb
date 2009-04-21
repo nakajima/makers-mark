@@ -52,7 +52,7 @@ module MakersMark
         private
 
         def say(msg)
-          $stdout.puts msg unless $SILENT
+          $stdout.puts msg if $VERBOSE
         end
       }.new
     end
