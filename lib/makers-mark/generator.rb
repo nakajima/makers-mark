@@ -18,9 +18,9 @@ module MakersMark
     def highlight!
       doc.search('div.code').each do |div|
         lexer = div['rel'] || :ruby
-        
+
         lexted_text = Albino.new(div.text, lexer).to_s
-        
+
         highlighted = Nokogiri::HTML(lexted_text).at('div')
 
         klasses = highlighted['class'].split(/\s+/)
