@@ -1,7 +1,7 @@
 $LOAD_PATH << File.dirname(__FILE__)
 
 require 'rubygems'
-require 'rdiscount'
+require 'bluecloth'
 require 'nokogiri'
 require File.join(File.dirname(__FILE__), *%w[.. vendor albino])
 require 'makers-mark/generator'
