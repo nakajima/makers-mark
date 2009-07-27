@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'nokogiri'
-require 'bacon'
+require 'spec'
 
 require File.dirname(__FILE__) + '/../lib/makers-mark'
 
