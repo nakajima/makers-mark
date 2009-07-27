@@ -38,7 +38,7 @@ module MakersMark
         logger.info "WRITING!"
         t = BlueCloth.new(@markdown.dup).to_html
         t.gsub!(/^(?:<p>)?@@@(?:<\/p>)?$/, '</div>')
-        t.gsub!(/^(?:<p>)?@@@\s*(\w+)(?:<\/p>)?$/, '<div class="code" rel="\1">')
+        t.gsub!(/^(?:<p>)?@@@\s*([\w\+]+)(?:<\/p>)?$/, '<div class="code" rel="\1">')
         t
       end
     end
