@@ -32,6 +32,17 @@ describe 'MakersMark' do
     Nokogiri(result).at('.highlight.js').should_not be_nil
   end
 
+  it "converts weird lexer characters to dash" do
+    with_markdown <<-MD
+    |@@@ html+erb
+    |
+    |    <html></html>
+    |
+    |@@@
+    MD
+    Nokogiri(result).at('.highlight.html-erb').should_not be_nil
+  end
+
   it "allows nested markdown" do
     with_markdown <<-MD
     |    # This should be markdown

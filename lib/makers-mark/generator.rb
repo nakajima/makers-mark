@@ -24,7 +24,7 @@ module MakersMark
         highlighted = Nokogiri::HTML(lexted_text).at('div')
 
         klasses = highlighted['class'].split(/\s+/)
-        klasses << lexer
+        klasses << lexer.gsub(/\W/, '-')
         klasses << 'code'
         klasses << 'highlight'
         highlighted['class'] = klasses.join(' ')
